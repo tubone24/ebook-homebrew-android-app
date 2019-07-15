@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Upload to DeployGate
           command: |
-            APK_PATH=android/app/build/outputs/apk/debug/app-debug.apk
+            APK_PATH=build/app/outputs/apk/debug/app-debug.apk
             TIME=$(date "+%Y/%m/%d %H:%M")
             COMMIT_HASH=$(git log --format="%H" -n 1 | cut -c 1-8)
             USERNAME=tubone
