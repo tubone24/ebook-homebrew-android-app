@@ -13,11 +13,11 @@ jobs:
       - run:
           name: run tests
           command: ~/flutter/bin/flutter test
-      - run: build_debug_apk
+      - run:
           name: Build debug APK
           command: ~/flutter/bin/flutter build apk --debug
-      - run: upload_to_deploy_gate
-          name: Upload to DeployGate # Set DG_API_KEY in CircleCI
+      - run:
+          name: Upload to DeployGate
           command: |
             APK_PATH=android/app/build/outputs/apk/debug/app-debug.apk
             TIME=$(date "+%Y/%m/%d %H:%M")
