@@ -14,6 +14,9 @@ jobs:
           name: Setup Keystore
           command: echo $DEBUG_KEYSTORE_BASE64 | base64 --decode > android/app/apk_key.jks
       - run:
+          name: Setup key.properties
+          command: echo $DEBUG_KEYPROPERTIES_BASE64 | base64 --decode > android/key.properties
+      - run:
           name: run tests
           command: ~/flutter/bin/flutter test
       - run:
