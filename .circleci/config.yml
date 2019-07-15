@@ -4,7 +4,7 @@ jobs:
     environment:
       - LANG: en_US.UTF-8
     docker:
-      - image: circleci/android:api-27-alpha
+      - image: circleci/android:api-28
     steps:
       - checkout
       - run:
