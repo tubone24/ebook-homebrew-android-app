@@ -11,6 +11,9 @@ jobs:
           name: Install Flutter SDK
           command: git clone -b beta https://github.com/flutter/flutter.git ~/flutter
       - run:
+          name: Setup Keystore
+          command: echo $DEBUG_KEYSTORE_BASE64 | base64 --decode > android/app/apk_key.jks
+      - run:
           name: run tests
           command: ~/flutter/bin/flutter test
       - run:
