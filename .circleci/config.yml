@@ -49,8 +49,6 @@ jobs:
       - store_artifacts:
           path: build/app/outputs/bundle/release/app.aab
           destination: app-release-aab
-      - codecov/upload:
-          file: coverage/lcov.info
   test:
     executor:
       name: default
@@ -70,12 +68,16 @@ jobs:
       - run:
           name: run tests
           command: ~/flutter/bin/flutter test --coverage
+      - codecov/upload:
+          file: coverage/lcov.info
 
 workflows:
   test_and_build:
     jobs:
       - test
       - build:
+          requires:
+            - test
           filters:
             branches:
               only:
