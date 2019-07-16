@@ -10,9 +10,6 @@ jobs:
   build:
     executor:
       name: default
-    branches:
-      only:
-        - master
     environment:
       - LANG: en_US.UTF-8
     steps:
@@ -73,3 +70,13 @@ jobs:
       - run:
           name: run tests
           command: ~/flutter/bin/flutter test --coverage
+
+workflows:
+  test_and_build:
+    jobs:
+      - test
+      - build:
+          filters:
+            branches:
+              only:
+                - master
