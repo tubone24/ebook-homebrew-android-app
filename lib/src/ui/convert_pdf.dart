@@ -5,6 +5,8 @@ import 'package:ebook_homebrew_flutter/src/logics/call_api.dart';
 import 'package:ebook_homebrew_flutter/src/logics/convert_base64.dart';
 import 'package:ebook_homebrew_flutter/src/utils/utils.dart';
 
+const String BASEURL = 'https://ebook-homebrew.herokuapp.com';
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _extension;
   String _contentType;
   String _uploadId;
-  CallApi callApi = new CallApi();
+  CallApi callApi = new CallApi(BASEURL);
   Utils utils = new Utils();
 
   void _openFileExplorer() async {
