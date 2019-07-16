@@ -13,7 +13,7 @@ void main() {
     _server.shutdown();
   });
 
-  test("uploadData()", () async {
+  test('uploadData', () async {
     _server.enqueue(body: '{"upload_id":"test"}');
     String actual = await target.uploadData('image/jpeg', ['test']);
     expect(actual, 'test');
@@ -23,7 +23,7 @@ void main() {
     expect(request.body, '{"contentType":"image/jpeg","images":["test"]}');
   });
 
-  test("uploadData Exception", () async {
+  test('uploadData Exception', () async {
     _server.enqueue(httpCode: 500);
     expect(() async => await target.uploadData('image/jpeg', ['test']), isInstanceOf<Error>());
   });
