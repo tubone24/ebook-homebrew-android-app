@@ -4,8 +4,8 @@ import 'package:mock_web_server/mock_web_server.dart';
 import 'package:ebook_homebrew_flutter/src/logics/call_api.dart';
 
 void main() {
-  CallApi target = new CallApi('http://127.0.0.1:80');
-  MockWebServer _server = new MockWebServer(port: 80);
+  CallApi target = new CallApi('http://127.0.0.1:8081');
+  MockWebServer _server = new MockWebServer(port: 8081);
   setUp(() async {
     await _server.start();
   });
