@@ -25,7 +25,7 @@ void main() {
 
   test('uploadData Exception', () async {
     _server.enqueue(httpCode: 500);
-    expect(() async => await target.uploadData('image/jpeg', ['test']), isInstanceOf<Future<String>>());
+    expect(() async => await target.uploadData('image/jpeg', ['test']), isInstanceOf<Error>());
   });
 }
 
