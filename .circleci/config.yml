@@ -2,12 +2,15 @@ version: 2.1
 description: Test flutter, build Android app
 orbs:
   codecov: codecov/codecov@1.0.5
-jobs:
-  build:
-    environment:
-      - LANG: en_US.UTF-8
+executor:
+  default:
     docker:
       - image: circleci/android:api-28
+jobs:
+  build:
+    executor: default
+    environment:
+      - LANG: en_US.UTF-8
     filters:
       branches:
         only:
