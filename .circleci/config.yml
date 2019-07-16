@@ -1,4 +1,6 @@
 version: 2
+orbs:
+  codecov: codecov/codecov@1.0.4
 jobs:
   build:
     environment:
@@ -22,7 +24,7 @@ jobs:
           command: echo $DEBUG_KEYPROPERTIES_BASE64 | base64 --decode > android/key.properties
       - run:
           name: run tests
-          command: ~/flutter/bin/flutter test
+          command: ~/flutter/bin/flutter test --coverage
       - run:
           name: Build debug APK
           command: ~/flutter/bin/flutter build apk --debug
@@ -49,3 +51,5 @@ jobs:
       - store_artifacts:
           path: build/app/outputs/bundle/release/app.aab
           destination: app-release-aab
+      - codecov/upload:
+          file: coverage/lcov.info
