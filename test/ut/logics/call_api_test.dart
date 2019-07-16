@@ -22,10 +22,5 @@ void main() {
     expect(request.headers['accept'], 'application/json');
     expect(request.body, '{"contentType":"image/jpeg","images":["test"]}');
   });
-
-  test('uploadData Exception', () async {
-    _server.enqueue(httpCode: 500);
-    expect(() async => await target.uploadData('image/jpeg', ['test']), Closure: () => Future<String>);
-  });
 }
 
