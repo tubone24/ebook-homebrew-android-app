@@ -8,13 +8,13 @@ executor:
       - image: circleci/android:api-28
 jobs:
   build:
-    executor: default
+    executor:
+      name: default
+    branches:
+      only:
+        - master
     environment:
       - LANG: en_US.UTF-8
-    filters:
-      branches:
-        only:
-          - master
     steps:
       - checkout
       - run:
@@ -26,9 +26,6 @@ jobs:
       - run:
           name: Setup key.properties
           command: echo $DEBUG_KEYPROPERTIES_BASE64 | base64 --decode > android/key.properties
-      - run:
-          name: run tests
-          command: ~/flutter/bin/flutter test --coverage
       - run:
           name: Build debug APK
           command: ~/flutter/bin/flutter build apk --debug
@@ -57,3 +54,22 @@ jobs:
           destination: app-release-aab
       - codecov/upload:
           file: coverage/lcov.info
+  test:
+    executor:
+      name: default
+    environment:
+      - LANG: en_US.UTF-8
+    steps:
+      - checkout
+      - run:
+          name: Install Flutter SDK
+          command: git clone -b beta https://github.com/flutter/flutter.git ~/flutter
+      - run:
+          name: Setup Keystore
+          command: echo $DEBUG_KEYSTORE_BASE64 | base64 --decode > android/app/apk_key.jks
+      - run:
+          name: Setup key.properties
+          command: echo $DEBUG_KEYPROPERTIES_BASE64 | base64 --decode > android/key.properties
+      - run:
+          name: run tests
+          command: ~/flutter/bin/flutter test --coverage
