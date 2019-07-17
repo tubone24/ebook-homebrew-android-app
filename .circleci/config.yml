@@ -28,7 +28,7 @@ jobs:
           command: ~/flutter/bin/flutter build apk --debug
       - run:
           name: Build release APK
-          command: ~/flutter/bin/flutter build apk --release
+          command: ~/flutter/bin/flutter build apk --release --split-per-abi
       - run:
           name: Build release appbundle
           command: ~/flutter/bin/flutter build appbundle --release
