@@ -4,6 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:ebook_homebrew_flutter/src/logics/call_api.dart';
 import 'package:ebook_homebrew_flutter/src/logics/convert_base64.dart';
 import 'package:ebook_homebrew_flutter/src/utils/utils.dart';
+import 'dart:io';
+import 'package:ebook_homebrew_flutter/src/utils/file_io.dart';
+
+const String BASEURL = 'https://ebook-homebrew.herokuapp.com';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -19,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
   String _extension;
   String _contentType;
   String _uploadId;
-  CallApi callApi = new CallApi();
+  CallApi callApi = new CallApi(BASEURL);
   Utils utils = new Utils();
 
   void _openFileExplorer() async {
@@ -64,8 +68,9 @@ class _MyHomePageState extends State<MyHomePage> {
     List<int> result =
         await callApi.downloadPdfWaiting(_contentType, _uploadId);
     String nowTimestamp = utils.nowDate();
-    utils.writeFile(
-        '/storage/emulated/0/Download/ebook$nowTimestamp.pdf', result);
+    File file = File('/storage/emulated/0/Download/ebook$nowTimestamp.pdf');
+    FileIO fileIO = new FileIO(file);
+    fileIO.writeFile(result);
     showDialog(
         context: context,
         barrierDismissible: false,

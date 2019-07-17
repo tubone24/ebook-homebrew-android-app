@@ -1,8 +1,11 @@
-import 'dart:io';
 import 'package:intl/intl.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class Utils {
+  DateTime now;
+
+  Utils(): now = new DateTime.now();
+  Utils.now(this.now);
+
   String convertContentType(String extension) {
     String contentType;
     if (extension == 'jpg') {
@@ -15,14 +18,7 @@ class Utils {
     return contentType;
   }
 
-  void writeFile(String filename, List<int> bodyBytes) async {
-    await PermissionHandler().requestPermissions([PermissionGroup.storage]);
-    File file = new File(filename);
-    file.writeAsBytesSync(bodyBytes);
-  }
-
   String nowDate(){
-    DateTime now = new DateTime.now();
-    return new DateFormat('dd-MM-yyyy-hh:mm:ss').format(now);
+    return new DateFormat('dd-MM-yyyy-hh:mm:ss').format(this.now);
   }
 }

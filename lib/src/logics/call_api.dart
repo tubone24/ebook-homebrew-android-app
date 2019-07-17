@@ -5,7 +5,8 @@ import 'dart:async';
 import 'package:ebook_homebrew_flutter/src/models/ebook_homebrew.dart';
 
 class CallApi{
-  static const String baseURL = 'https://ebook-homebrew.herokuapp.com';
+  String baseURL;
+  CallApi(this.baseURL);
   Future<String> uploadData(String contentType, List<String> images) async {
     String body = new EbookHomebrewUploadImages(contentType, images).convertJson();
     http.Response response = await http.post(

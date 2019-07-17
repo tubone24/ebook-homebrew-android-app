@@ -3,6 +3,7 @@
 > Make pdf file which you use e-books by take in some image files such as jpeg, png and gif.
 
 [![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-android-app.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-android-app)
+[![codecov](https://codecov.io/gh/tubone24/ebook-homebrew-android-app/branch/master/graph/badge.svg)](https://codecov.io/gh/tubone24/ebook-homebrew-android-app)
 
 ## What is this app?
 
