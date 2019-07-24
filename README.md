@@ -4,6 +4,7 @@
 
 [![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-android-app.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-android-app)
 [![codecov](https://codecov.io/gh/tubone24/ebook-homebrew-android-app/branch/master/graph/badge.svg)](https://codecov.io/gh/tubone24/ebook-homebrew-android-app)
+[<img src="https://dply.me/yv0jty/button/small" alt="Download to device">](https://dply.me/yv0jty#install)
 
 ## What is this app?
 
@@ -24,6 +25,14 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Install your Android devices
+
+This app is deploy to Deploygate. Try me!
+
+[<img src="https://dply.me/yv0jty/button/large" alt="Try it on your device via DeployGate">](https://dply.me/yv0jty#install)
+
+And also, you can download to [Google Play](https://play.google.com/store/apps/details?id=com.tubone.ebook_homebrew_flutter)
 
 ## Demos
 ![Android](https://github.com/tubone24/ebook-homebrew-android-app/raw/master/docs/images/flutter.gif)
