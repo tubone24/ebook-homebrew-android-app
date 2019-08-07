@@ -36,6 +36,19 @@ This app is deploy to Deploygate. Try me!
 
 And also, you can download to [Google Play](https://play.google.com/store/apps/details?id=com.tubone.ebook_homebrew_flutter)
 
+## Test
+
+If you want to test, Command `flutter test`
+
+```
+$ flutter test
+
+00:01 +2: E:\tubone\project\ebook_homebrew_flutter\test\ut\logics\call_api_test.dart: downloadPdf
+Statuscode: 200
+00:02 +8: All tests passed!
+
+```
+
 ## Demos
 ![Android](https://github.com/tubone24/ebook-homebrew-android-app/raw/master/docs/images/flutter.gif)
 
