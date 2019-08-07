@@ -7,6 +7,8 @@ import 'package:ebook_homebrew_flutter/src/utils/utils.dart';
 import 'dart:io';
 import 'package:ebook_homebrew_flutter/src/utils/file_io.dart';
 
+final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
 const String BASEURL = 'https://ebook-homebrew.herokuapp.com';
 
 class MyHomePage extends StatefulWidget {
@@ -40,27 +42,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _uploadData() async {
-    ConvertBase64 convertbase64 = new ConvertBase64();
+  Future<bool> _uploadData() async {
+    ConvertBase64 convertBase64 = new ConvertBase64();
     List<String> imagesList =
-        convertbase64.createImageb64List(_paths.values.toList());
+        convertBase64.createImageb64List(_paths.values.toList());
     _contentType = utils.convertContentType(_extension);
     _uploadId = await callApi.uploadData(_contentType, imagesList);
-    showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Upload Complete'),
-            content: Text('Upload Complete!!'),
-            actions: <Widget>[
-              FlatButton(
-                child: Text('OK'),
-                onPressed: () => Navigator.of(context).pop(0),
-              ),
-            ],
-          );
-        });
+    return true;
   }
 
   void _downloadPdf() async {
@@ -92,6 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       home: new Scaffold(
+        key: _scaffoldKey,
         appBar: new AppBar(
           title: const Text('Ebook-Homebrew'),
         ),
@@ -129,7 +118,35 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Padding(
                   padding: const EdgeInsets.only(top: 10.0, bottom: 20.0),
                   child: new RaisedButton(
-                    onPressed: () => _uploadData(),
+                    onPressed: () {
+                      _scaffoldKey.currentState.showSnackBar(
+                          new SnackBar(duration: new Duration(seconds: 4), content:
+                          new Row(
+                            children: <Widget>[
+                              new CircularProgressIndicator(),
+                              new Text("  Now Uploading....")
+                            ],
+                          ),
+                          ));
+                      _uploadData()
+                          .whenComplete(() =>
+                          showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Upload Complete'),
+                                  content: Text('Upload Complete!!'),
+                                  actions: <Widget>[
+                                    FlatButton(
+                                      child: Text('OK'),
+                                      onPressed: () => Navigator.of(context).pop(0),
+                                    ),
+                                  ],
+                                );
+                              })
+                      );
+                    },
                     child: new Text('Upload Files'),
                   ),
                 ),

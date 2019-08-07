@@ -4,6 +4,8 @@
 
 [![CircleCI](https://circleci.com/gh/tubone24/ebook-homebrew-android-app.svg?style=svg)](https://circleci.com/gh/tubone24/ebook-homebrew-android-app)
 [![codecov](https://codecov.io/gh/tubone24/ebook-homebrew-android-app/branch/master/graph/badge.svg)](https://codecov.io/gh/tubone24/ebook-homebrew-android-app)
+[![MIT](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tubone24/ebook_homebrew_flutter/blob/master/LICENSE)
+[![MIT](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [<img src="https://dply.me/yv0jty/button/small" alt="Download to device">](https://dply.me/yv0jty#install)
 
 ## What is this app?
