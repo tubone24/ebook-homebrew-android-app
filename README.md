@@ -49,6 +49,16 @@ Statuscode: 200
 
 ```
 
+Also you can E2E test with Appinum (Python)
+
+Before test, install appinum and Android adb
+
+```
+cd test/e2e
+pip install -r requestsment-test.txt
+python test.py
+```
+
 ## Demos
 ![Android](https://github.com/tubone24/ebook-homebrew-android-app/raw/master/docs/images/flutter.gif)
 
