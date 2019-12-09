@@ -11,7 +11,7 @@ class EbookHomebrewAndroidTests(unittest.TestCase):
         desired_caps['platformVersion'] = '9.0'
         desired_caps['deviceName'] = 'Nexus'
         # Returns abs path relative to this file and not cwd
-        desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__),'../../build/app/outputs/apk/debug/app-debug.apk'))
+        desired_caps['app'] = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../build/app/outputs/apk/debug/app-debug.apk'))
         desired_caps['appPackage'] = 'com.tubone.ebook_homebrew_flutter'
         desired_caps['appActivity'] = '.MainActivity'
         self.driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
